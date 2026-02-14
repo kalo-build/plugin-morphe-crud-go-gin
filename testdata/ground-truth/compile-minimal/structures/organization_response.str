@@ -1,0 +1,8 @@
+name: OrganizationResponse
+fields:
+  Code:
+    type: String
+  ID:
+    type: UUID
+  Name:
+    type: String

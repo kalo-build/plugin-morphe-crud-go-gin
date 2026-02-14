@@ -1,0 +1,14 @@
+name: ProjectResponse
+fields:
+  Code:
+    type: String
+  Description:
+    type: String
+  ID:
+    type: UUID
+  Name:
+    type: String
+  OrganizationID:
+    type: UUID
+    attributes:
+      - optional

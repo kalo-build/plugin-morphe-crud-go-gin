@@ -1,0 +1,59 @@
+name: "@kalo-build/plugin-morphe-crud-go-gin"
+displayName: "Morphe CRUD Go Gin"
+description: "Generates Go Gin HTTP handlers and repository interfaces from Morphe model definitions. Creates CRUD endpoints with filter support derived from model relationships."
+version: "1.0.0"
+
+input:
+  format: "KA:MO1:YAML1"
+  description: "Morphe YAML schema files"
+  suggestedStore:
+    name: "KA_MO_YAML"
+    type: "localFileSystem"
+    path: "./morphe"
+
+output:
+  format: "KA:MO1:GO_GIN1"
+  description: "Go Gin handler and repository interface files"
+  suggestedStore:
+    name: "KA_GO_API"
+    type: "localFileSystem"
+    path: "./internal/generated"
+
+configSchema:
+  handlers:
+    type: object
+    description: "Handler generation configuration"
+    properties:
+      PackagePath:
+        type: string
+        required: true
+        description: "Go package path for generated handler files"
+  repo:
+    type: object
+    description: "Repository interface generation configuration"
+    properties:
+      PackagePath:
+        type: string
+        required: true
+        description: "Go package path for generated repository interface files"
+  models:
+    type: object
+    description: "Models package reference configuration"
+    properties:
+      PackagePath:
+        type: string
+        required: true
+        description: "Go package path of the generated model types (from plugin-morphe-go-struct)"
+  structures:
+    type: object
+    description: "Structures (DTO) package reference configuration"
+    properties:
+      PackagePath:
+        type: string
+        required: true
+        description: "Go package path of the generated structure types (from plugin-morphe-go-struct)"
+  excludeModels:
+    type: array
+    description: "List of model names to exclude from generation"
+    items:
+      type: string

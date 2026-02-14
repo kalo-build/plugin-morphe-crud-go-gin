@@ -1,0 +1,12 @@
+name: TaskResponse
+fields:
+  ID:
+    type: UUID
+  Status:
+    type: String
+  Title:
+    type: String
+  ProjectID:
+    type: UUID
+    attributes:
+      - optional
